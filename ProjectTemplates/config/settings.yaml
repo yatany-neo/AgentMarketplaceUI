@@ -1,0 +1,182 @@
+# 项目配置文件
+# 使用 YAML 格式，支持更复杂的配置结构
+
+project:
+  name: "项目名称"
+  version: "1.0.0"
+  description: "项目描述"
+  author: "作者姓名"
+  created_date: "2024-01-01"
+  environment: "development"  # development, staging, production
+
+# 数据库配置
+database:
+  default:
+    host: "localhost"
+    port: 5432
+    name: "main_database"
+    username: "username"
+    password: "password"
+    pool_size: 10
+    timeout: 30
+    ssl: false
+  
+  test:
+    host: "localhost"
+    port: 5432
+    name: "test_database"
+    username: "test_user"
+    password: "test_password"
+    pool_size: 5
+    timeout: 15
+    ssl: false
+
+# API 配置
+api:
+  base_url: "https://api.example.com"
+  version: "v1"
+  timeout: 30
+  retry_attempts: 3
+  rate_limit:
+    requests_per_minute: 100
+    burst_size: 20
+  authentication:
+    type: "bearer"  # bearer, api_key, oauth2
+    token_header: "Authorization"
+    token_prefix: "Bearer"
+
+# 日志配置
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  handlers:
+    console:
+      enabled: true
+      level: "INFO"
+    file:
+      enabled: true
+      level: "DEBUG"
+      path: "logs/app.log"
+      max_size: "10MB"
+      backup_count: 5
+    rotating:
+      enabled: false
+      path: "logs/rotating.log"
+      max_size: "5MB"
+      backup_count: 10
+
+# 数据处理配置
+data_processing:
+  input:
+    directory: "data/input"
+    allowed_formats: ["csv", "json", "xlsx", "parquet"]
+    max_file_size: "100MB"
+  
+  output:
+    directory: "data/output"
+    format: "csv"  # csv, json, xlsx, parquet
+    compression: false
+  
+  temp:
+    directory: "temp"
+    cleanup_after_processing: true
+  
+  performance:
+    batch_size: 1000
+    max_workers: 4
+    chunk_size: 1024
+    memory_limit: "2GB"
+
+# 安全配置
+security:
+  secret_key: "your-secret-key-here"
+  token_expiry: 3600  # seconds
+  encryption:
+    algorithm: "AES-256"
+    key_size: 256
+  hashing:
+    algorithm: "SHA-256"
+    salt_length: 32
+  password:
+    min_length: 8
+    require_uppercase: true
+    require_lowercase: true
+    require_numbers: true
+    require_special_chars: true
+
+# 监控配置
+monitoring:
+  enabled: true
+  metrics:
+    endpoint: "/metrics"
+    collection_interval: 60  # seconds
+  health_check:
+    endpoint: "/health"
+    check_interval: 30  # seconds
+  alerts:
+    email:
+      enabled: false
+      smtp_server: "smtp.gmail.com"
+      smtp_port: 587
+      username: "alerts@example.com"
+      password: "password"
+      recipients: ["admin@example.com"]
+    thresholds:
+      cpu_usage: 80  # percentage
+      memory_usage: 85  # percentage
+      disk_usage: 90  # percentage
+      response_time: 5000  # milliseconds
+
+# 开发环境配置
+development:
+  debug_mode: true
+  auto_reload: true
+  hot_reload: true
+  profiling: false
+  mock_external_apis: true
+  test_data:
+    enabled: true
+    directory: "test_data"
+
+# 生产环境配置
+production:
+  debug_mode: false
+  auto_reload: false
+  hot_reload: false
+  profiling: true
+  optimization: true
+  caching:
+    enabled: true
+    ttl: 3600  # seconds
+  compression:
+    enabled: true
+    level: 6
+
+# 外部服务配置
+external_services:
+  redis:
+    host: "localhost"
+    port: 6379
+    password: null
+    database: 0
+    timeout: 5
+  
+  elasticsearch:
+    host: "localhost"
+    port: 9200
+    username: null
+    password: null
+    index_prefix: "project"
+  
+  s3:
+    bucket: "project-bucket"
+    region: "us-east-1"
+    access_key: "your-access-key"
+    secret_key: "your-secret-key"
+
+# 功能开关
+feature_flags:
+  new_ui: false
+  advanced_analytics: true
+  real_time_updates: false
+  experimental_features: false

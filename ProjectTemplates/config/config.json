@@ -1,0 +1,71 @@
+{
+  "project": {
+    "name": "项目名称",
+    "version": "1.0.0",
+    "description": "项目描述",
+    "author": "作者姓名",
+    "created_date": "2024-01-01"
+  },
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "name": "database_name",
+    "username": "username",
+    "password": "password",
+    "pool_size": 10,
+    "timeout": 30
+  },
+  "api": {
+    "base_url": "https://api.example.com",
+    "timeout": 30,
+    "retry_attempts": 3,
+    "rate_limit": {
+      "requests_per_minute": 100,
+      "burst_size": 20
+    }
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "file_path": "logs/app.log",
+    "max_file_size": "10MB",
+    "backup_count": 5
+  },
+  "data_processing": {
+    "input_directory": "data/input",
+    "output_directory": "data/output",
+    "temp_directory": "temp",
+    "batch_size": 1000,
+    "max_workers": 4,
+    "chunk_size": 1024
+  },
+  "security": {
+    "secret_key": "your-secret-key-here",
+    "token_expiry": 3600,
+    "encryption_algorithm": "AES-256",
+    "hash_algorithm": "SHA-256"
+  },
+  "monitoring": {
+    "enabled": true,
+    "metrics_endpoint": "/metrics",
+    "health_check_endpoint": "/health",
+    "alert_thresholds": {
+      "cpu_usage": 80,
+      "memory_usage": 85,
+      "disk_usage": 90
+    }
+  },
+  "development": {
+    "debug_mode": true,
+    "auto_reload": true,
+    "hot_reload": true,
+    "profiling": false
+  },
+  "production": {
+    "debug_mode": false,
+    "auto_reload": false,
+    "hot_reload": false,
+    "profiling": true,
+    "optimization": true
+  }
+}
