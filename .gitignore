@@ -110,3 +110,9 @@ tmp/
 # Azure deployment files
 deploy.sh
 DEPLOYMENT.md
+
+# Project templates and workflows (not part of main app)
+ProjectTemplates/
+n8n_workflows/
+scripts/
+extracted_word_content.txt

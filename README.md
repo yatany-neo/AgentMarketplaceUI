@@ -70,9 +70,6 @@ AgentMarketplaceUI/
 │   │   └── App.css                  # 样式文件
 │   ├── package.json                 # 项目配置
 │   └── README.md                    # 应用说明
-├── ProjectTemplates/                # 项目模板
-├── n8n_workflows/                   # n8n 工作流
-├── scripts/                         # 辅助脚本
 ├── requirements_analysis.md         # 需求分析文档
 └── README.md                        # 项目说明
 ```
